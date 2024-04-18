@@ -29,13 +29,13 @@ app.get('/genres', async(req, res) => {
 app.post("/goods", async(req, res) => {
   try{
     const guantity = parseInt(req.body.quantity, 10);
-    const savedTask = await prisma.goods.create({
+    const savedGoods = await prisma.goods.create({
       data: {
         ...req.body,
         quantity: guantity
       }
     });
-    res.json(savedTask);
+    res.json(savedGoods);
   }catch(error){
     res.status(500).send("リストの保存に失敗しました。")
   }
